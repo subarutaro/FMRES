@@ -144,8 +144,9 @@ public:
       }
     }
     for(int c=0;c<p.ncond;c++){
-      std::string filename = "hist" + std::to_string(c) + ".dat";
+      std::string filename = filenames[c] + ".hist";
       std::ofstream ofs(filename);
+      assert(!ofs.fail());
       for(int i=0;i<prod(p.nbins);i++){
 	ofs << Bin(i) << " " << hist[c][i] << std::endl;
       }
