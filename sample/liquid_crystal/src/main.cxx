@@ -34,7 +34,7 @@ int main(int argc, char** argv){
     wham.CalcDoS();
     wham.CalcFreeEnergy();
   }
-  wham.CalcPhysicalValue("phys_value_test.dat");
+  wham.CalcPhysicalValue("phys_value.dat");
   wham.OutputFreeEnergy();
   //wham.OutputDoS("dos_test.dat");
 }

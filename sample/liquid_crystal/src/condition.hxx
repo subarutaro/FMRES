@@ -23,6 +23,8 @@ typedef struct{
   float w;
 }float4;
 
+int NMOL = 108;
+
 class Condition{
 public:
   union{
@@ -32,14 +34,17 @@ public:
       float pressure;
     };
   };
+  int nmol;
+
+  Condition(){ nmol = NMOL;}
 
   friend std::ostream& operator<<(std::ostream &os,const Condition& c){
-    os << " " << c.temperature << " " << c.pressure;
+    os << c.temperature << " " << c.pressure;
     return os;
   }
   friend std::istream& operator>>(std::istream &is,Condition &c){
-    is >> c.temperature >> c.pressure;
-    std::cout << c.temperature << " " << c.pressure << std::endl;
+    is >> c.nmol >> c.temperature >> c.pressure;
+    NMOL = c.nmol;
     return is;
   }
 
@@ -47,7 +52,7 @@ public:
   const float& operator[](const int i) const {return data[i];}
 
   float calcLogBoltzmannFactor(const Vector<double,2>& bin) const {
-    return -(bin[0] + pressure*108/bin[1])/temperature;
+    return -(bin[0] + pressure*nmol/bin[1])/temperature;
   }
 };
 

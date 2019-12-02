@@ -1,9 +1,9 @@
 CXX?=g++
-CXXFLAGS+= -g -O0 -std=c++11
+CXXFLAGS+= -O2 -std=c++11
 CXXFLAGS+= -fopenmp
 INC= -I../../../src/
 
-HED= ../../../src/array.hxx ../../../src/wham.hxx
+HED= ../../../src/array.hxx ../../../src/wham.hxx condition.hxx
 
 all:	wham.out
 wham.out:	main.cxx $(HED)
