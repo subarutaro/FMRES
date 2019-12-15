@@ -63,8 +63,8 @@ public:
     float data[NDATA_RESULT];
     struct{
       float pot;
-      float dens;
       float order_parameter;
+      float dens;
       float smectic_parameter;
     };
   };
@@ -131,15 +131,14 @@ public:
   }
 
   friend std::ostream& operator<<(std::ostream &os,const Result &r){
-    os << " " << r.pot
-       << " " << r.order_parameter
-       << " " << r.dens
-       << " " << r.smectic_parameter;
+    for(int i=0;i<NDATA_RESULT;i++) os << " " << r.data[i];
     return os;
   }
   friend std::istream& operator>>(std::istream &is,Result &r){
     int step;
-    is >> step >> r.pot >> r.order_parameter >> r.dens >> r.smectic_parameter;
+    is >> step;
+    //>> r.pot >> r.order_parameter >> r.dens >> r.smectic_parameter;
+    for(int i=0;i<NDATA_RESULT;i++) is >> r.data[i];
     return is;
   }
   friend Result log(const Result& r){
