@@ -124,6 +124,8 @@ public:
 	p.mins = min(p.mins,rtmp.getBin());
       }
     }
+    const double offset = 1.0;
+    p.maxs += offset;
     p.tics = (p.maxs - p.mins)/p.nbins;
     std::cerr << "maxs: " << p.maxs << std::endl;
     std::cerr << "mins: " << p.mins << std::endl;
