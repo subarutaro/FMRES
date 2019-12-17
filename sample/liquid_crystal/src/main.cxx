@@ -14,8 +14,8 @@ int main(int argc, char** argv){
   p.ncond = argc - 1;
 
   // interval of E and V for making histogram
-  p.nbins[0] = 100;
-  p.nbins[1] = 100;
+  p.nbins[0] = 200;
+  p.nbins[1] = 200;
 
   // number of OpenMP threads (currently, should be 1)
   p.nthreads = 1;
@@ -41,5 +41,5 @@ int main(int argc, char** argv){
   }
   wham.CalcPhysicalValue("phys_value.dat");
   wham.OutputFreeEnergy();
-  //wham.OutputDoS("dos_test.dat");
+  wham.OutputDoS();
 }
