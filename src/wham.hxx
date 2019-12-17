@@ -418,8 +418,7 @@ public:
     std::string filename = prefix + "dens_state.dat";
     std::ofstream ofs(filename);
     for(int i=0;i<prod(p.nbins);i++){
-      Vector<double,N> bin = Bin(i);
-      ofs << bin[i] << " " << dos[i] << std::endl;
+      ofs << Bin(i) << " " << dos[i] << std::endl;
     }
   }
 
